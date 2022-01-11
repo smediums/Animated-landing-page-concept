@@ -1,0 +1,81 @@
+// Variables
+$bodyBg: #1e242a;
+$handWd: 530px;
+$handHt: 625px;
+$handWdSm: 330px;
+$handHtSm: 389px;
+
+//Animations
+
+//Hand slide right
+@keyframes handSlide {
+  100% {
+    bottom: 0;
+  }
+}
+//Grid hand width change and reveal solid hand
+@keyframes handSwitch {
+  100% {
+    width: 0;
+    left: 50%;
+  }
+}
+@keyframes solidHand {
+  100% {
+    left: 50%;
+  }
+}
+//For small devices
+@keyframes handSwitchSm {
+  100% {
+    left: 10%;
+    width: 0;
+  }
+}
+@keyframes solidHandSm {
+  100% {
+    left: 10%;
+  }
+}
+
+//heading slide right
+@keyframes textAnimation {
+  to {
+    left: 0;
+  }
+}
+//Header slide down
+@keyframes containerMove {
+  to {
+    top: 0;
+  }
+}
+
+//cude rotate
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+  100% {
+    transform: rotateX(0) rotateY(360deg);
+  }
+}
+
+//media queries
+@mixin responsive($breakPoint) {
+  @if ($breakPoint == smPhone) {
+    @media screen and (max-width: 320px) {
+      @content;
+    }
+  }
+  @if ($breakPoint == smallerThanTablet) {
+    @media screen and (max-width: 504px) {
+      @content;
+    }
+  }
+  @if ($breakPoint == tabletOrBigger) {
+    @media screen and (max-width: 960px) {
+      @content;
+    }
+  }
+}

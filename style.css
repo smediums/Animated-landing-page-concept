@@ -1,0 +1,477 @@
+@-webkit-keyframes handSlide {
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes handSlide {
+  100% {
+    bottom: 0;
+  }
+}
+
+@-webkit-keyframes handSwitch {
+  100% {
+    width: 0;
+    left: 50%;
+  }
+}
+
+@keyframes handSwitch {
+  100% {
+    width: 0;
+    left: 50%;
+  }
+}
+
+@-webkit-keyframes solidHand {
+  100% {
+    left: 50%;
+  }
+}
+
+@keyframes solidHand {
+  100% {
+    left: 50%;
+  }
+}
+
+@-webkit-keyframes handSwitchSm {
+  100% {
+    left: 10%;
+    width: 0;
+  }
+}
+
+@keyframes handSwitchSm {
+  100% {
+    left: 10%;
+    width: 0;
+  }
+}
+
+@-webkit-keyframes solidHandSm {
+  100% {
+    left: 10%;
+  }
+}
+
+@keyframes solidHandSm {
+  100% {
+    left: 10%;
+  }
+}
+
+@-webkit-keyframes textAnimation {
+  to {
+    left: 0;
+  }
+}
+
+@keyframes textAnimation {
+  to {
+    left: 0;
+  }
+}
+
+@-webkit-keyframes containerMove {
+  to {
+    top: 0;
+  }
+}
+
+@keyframes containerMove {
+  to {
+    top: 0;
+  }
+}
+
+@-webkit-keyframes rotateCube {
+  0% {
+    -webkit-transform: rotateX(0) rotateY(0);
+            transform: rotateX(0) rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateX(0) rotateY(360deg);
+            transform: rotateX(0) rotateY(360deg);
+  }
+}
+
+@keyframes rotateCube {
+  0% {
+    -webkit-transform: rotateX(0) rotateY(0);
+            transform: rotateX(0) rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateX(0) rotateY(360deg);
+            transform: rotateX(0) rotateY(360deg);
+  }
+}
+
+.cubeWrapper {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  text-align: center;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  overflow: hidden;
+}
+
+.cubeWrapper .cube {
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: rotateCube 30s linear infinite;
+          animation: rotateCube 30s linear infinite;
+}
+
+.cubeWrapper .cube div {
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border: 1px solid #fff;
+}
+
+.cubeWrapper .cube .top {
+  -webkit-transform: translateY(-75px) rotateX(90deg);
+          transform: translateY(-75px) rotateX(90deg);
+}
+
+.cubeWrapper .cube .bottom {
+  -webkit-transform: translateY(75px) rotateX(90deg);
+          transform: translateY(75px) rotateX(90deg);
+}
+
+.cubeWrapper .cube .left {
+  -webkit-transform: translateX(-75px) rotateY(90deg);
+          transform: translateX(-75px) rotateY(90deg);
+}
+
+.cubeWrapper .cube .right {
+  -webkit-transform: translateX(75px) rotateY(90deg);
+          transform: translateX(75px) rotateY(90deg);
+}
+
+.cubeWrapper .cube .front {
+  -webkit-transform: translateZ(75px);
+          transform: translateZ(75px);
+}
+
+.cubeWrapper .cube .back {
+  -webkit-transform: rotateY(-180deg) translateZ(75px);
+          transform: rotateY(-180deg) translateZ(75px);
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+main.showNav .box2 {
+  opacity: 0.5;
+}
+
+main.showNav header {
+  height: 100vh;
+  background: rgba(29, 29, 29, 0.5);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+main.showNav header .toggle .closeNav {
+  width: auto;
+  opacity: 1;
+}
+
+main.showNav header .toggle i {
+  color: orchid;
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  font-weight: 700;
+}
+
+main.showNav header .nav ul {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+main.showNav header .nav ul li {
+  left: 0;
+}
+
+main .gridHand,
+main .solidHand {
+  width: 530px;
+  height: 625px;
+  position: absolute;
+  left: 30%;
+  bottom: -100%;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 504px) {
+  main .gridHand,
+  main .solidHand {
+    width: 330px;
+    height: 389px;
+    left: 0;
+    background-size: cover;
+  }
+  main .gridHand.gridHand,
+  main .solidHand.gridHand {
+    -webkit-animation: handSlide 2s forwards, handSwitchSm 3s forwards 2s;
+            animation: handSlide 2s forwards, handSwitchSm 3s forwards 2s;
+  }
+  main .gridHand.solidHand,
+  main .solidHand.solidHand {
+    -webkit-animation: handSlide 2s forwards, solidHandSm 3s forwards 2s;
+            animation: handSlide 2s forwards, solidHandSm 3s forwards 2s;
+  }
+}
+
+main .gridHand {
+  background-image: url("https://res.cloudinary.com/davims6ce/image/upload/v1597557707/1_pblr2h.png");
+  -webkit-animation: handSlide 2s forwards, handSwitch 3s forwards 2s;
+          animation: handSlide 2s forwards, handSwitch 3s forwards 2s;
+  z-index: 2;
+}
+
+main .solidHand {
+  background-image: url("https://res.cloudinary.com/davims6ce/image/upload/v1597557706/2_meanqt.png");
+  -webkit-animation: handSlide 2s forwards, solidHand 3s forwards 2s;
+          animation: handSlide 2s forwards, solidHand 3s forwards 2s;
+  z-index: 1;
+}
+
+main .solidHand.showNav {
+  display: none;
+}
+
+main .box2 {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 250px;
+  left: 3rem;
+  overflow: hidden;
+  z-index: 4;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  color: #fff;
+  font-size: 10rem;
+  font-weight: 500;
+  line-height: 130px;
+}
+
+@media screen and (max-width: 320px) {
+  main .box2 {
+    top: 50px !important;
+  }
+  main .box2 .text {
+    font-size: 6.5rem !important;
+  }
+}
+
+@media screen and (max-width: 504px) {
+  main .box2 {
+    left: .6rem;
+    top: 145px;
+  }
+  main .box2 .text {
+    font-size: 8rem;
+    line-height: initial;
+  }
+}
+
+main .box2 .text {
+  position: relative;
+  left: -100%;
+  -webkit-animation: textAnimation 2s forwards 2s;
+          animation: textAnimation 2s forwards 2s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+main .box2 .text span {
+  color: orchid;
+}
+
+main header {
+  overflow: hidden;
+  width: 100vw;
+  height: 45px;
+  position: fixed;
+  top: -100%;
+  -webkit-animation: containerMove 2s forwards 2.5s;
+          animation: containerMove 2s forwards 2.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 6;
+  padding-top: 0.3rem 0;
+}
+
+main header .toggle {
+  width: 100%;
+  position: absolute;
+  top: 0.8rem;
+  font-size: 1.5rem;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 504px) {
+  main header .toggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+main header .toggle .closeNav {
+  position: absolute;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 200;
+  overflow: hidden;
+  width: 0;
+  opacity: 0;
+  -webkit-transition: 0.2s ease-in-out all 0.1s;
+  transition: 0.2s ease-in-out all 0.1s;
+  color: orchid;
+}
+
+main header .toggle i {
+  color: #fff;
+  font-weight: 100;
+  cursor: pointer;
+  -webkit-transition: 0.1s ease-in-out all;
+  transition: 0.1s ease-in-out all;
+}
+
+main header .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+main header .nav ul {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+@media screen and (max-width: 504px) {
+  main header .nav ul {
+    height: auto;
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    top: -250px;
+  }
+  main header .nav ul li {
+    position: relative;
+    left: 100%;
+    -webkit-transition: 0.2s ease-in-out all;
+    transition: 0.2s ease-in-out all;
+    margin: 1rem 0;
+  }
+  main header .nav ul li:nth-of-type(1) {
+    -webkit-transition-delay: 0.05s;
+            transition-delay: 0.05s;
+  }
+  main header .nav ul li:nth-of-type(2) {
+    -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+  }
+  main header .nav ul li:nth-of-type(3) {
+    -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+  }
+  main header .nav ul li:nth-of-type(4) {
+    -webkit-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+  }
+  main header .nav ul li a {
+    font-size: 1.5rem;
+  }
+}
+
+main header .nav li {
+  cursor: pointer;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+main header .nav li a {
+  color: #fff;
+  padding: 0.3rem 0.5rem;
+  font-size: 1.2rem;
+}
+
+main header .nav li:hover a {
+  color: orchid;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #1e242a;
+}
+/*# sourceMappingURL=style.css.map */

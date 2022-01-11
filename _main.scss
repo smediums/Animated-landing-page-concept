@@ -1,0 +1,238 @@
+main {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  &.showNav {
+    .box2 {
+      //   left: -350%;
+      opacity: 0.5;
+    }
+    header {
+      height: 100vh;
+      background: rgba(29, 29, 29, 0.5);
+      backdrop-filter: blur(4px);
+      .toggle {
+        .closeNav {
+          width: auto;
+          opacity: 1;
+        }
+        i {
+          color: orchid;
+          transform: scale(0, 1);
+          font-weight: 700;
+        }
+      }
+
+      .nav {
+        ul {
+          top: 50%;
+          transform: translateY(-50%);
+
+          li {
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .gridHand,
+  .solidHand {
+    width: $handWd;
+    height: $handHt;
+    position: absolute;
+    left: 30%;
+    bottom: -100%;
+    background-repeat: no-repeat;
+
+    @include responsive(smallerThanTablet) {
+      width: 330px;
+      height: 389px;
+      left: 0;
+      background-size: cover;
+
+      &.gridHand {
+        animation: handSlide 2s forwards, handSwitchSm 3s forwards 2s;
+      }
+
+      &.solidHand {
+        animation: handSlide 2s forwards, solidHandSm 3s forwards 2s;
+      }
+    }
+  }
+
+  .gridHand {
+    background-image: url("https://res.cloudinary.com/davims6ce/image/upload/v1597557707/1_pblr2h.png");
+    animation: handSlide 2s forwards, handSwitch 3s forwards 2s;
+    z-index: 2;
+  }
+
+  .solidHand {
+    background-image: url("https://res.cloudinary.com/davims6ce/image/upload/v1597557706/2_meanqt.png");
+    animation: handSlide 2s forwards, solidHand 3s forwards 2s;
+    z-index: 1;
+
+    &.showNav {
+      display: none;
+    }
+  }
+
+  .box2 {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 250px;
+    left: 3rem;
+    overflow: hidden;
+    z-index: 4;
+    transition: all ease-in-out 0.2s;
+    color: #fff;
+    font-size: 10rem;
+    font-weight: 500;
+    line-height: 130px;
+    
+    @include responsive(smPhone){
+        top: 50px !important;
+
+        .text{
+            font-size: 6.5rem !important;
+        }
+    }
+
+    @include responsive(smallerThanTablet) {
+      left: .6rem;
+      top: 145px;
+
+      .text {
+        font-size: 8rem;
+        line-height: initial;
+      }
+    }
+
+    .text {
+      position: relative;
+      left: -100%;
+      animation: textAnimation 2s forwards 2s;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+      span {
+        color: orchid;
+      }
+    }
+  }
+
+  header {
+    overflow: hidden;
+    width: 100vw;
+    height: 45px;
+    position: fixed;
+    top: -100%;
+    animation: containerMove 2s forwards 2.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    z-index: 6;
+    padding-top: 0.3rem 0;
+
+    .toggle {
+      width: 100%;
+      position: absolute;
+      top: 0.8rem;
+      font-size: 1.5rem;
+      display: none;
+      justify-content: center;
+      transition: all 0.2s ease-in-out;
+      z-index: 5;
+      cursor: pointer;
+
+      @include responsive(smallerThanTablet) {
+        display: flex;
+      }
+      .closeNav {
+        position: absolute;
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-weight: 200;
+        overflow: hidden;
+        width: 0;
+        opacity: 0;
+        transition: 0.2s ease-in-out all 0.1s;
+        color: orchid;
+      }
+
+      i {
+        color: #fff;
+        font-weight: 100;
+        cursor: pointer;
+        transition: 0.1s ease-in-out all;
+      }
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: 2px;
+
+      ul {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        text-align: center;
+        transition: all 0.1s ease-in-out;
+
+        @include responsive(smallerThanTablet) {
+          height: auto;
+          width: 90%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          position: absolute;
+          top: -250px;
+
+          li {
+            position: relative;
+            left: 100%;
+            transition: 0.2s ease-in-out all;
+            margin: 1rem 0;
+
+            @for $i from 1 through 4 {
+              &:nth-of-type(#{$i}) {
+                transition-delay: $i * 0.05s;
+              }
+            }
+
+            a {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+
+      li {
+        cursor: pointer;
+        align-self: center;
+
+        a {
+          color: #fff;
+          padding: 0.3rem 0.5rem;
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          a {
+            color: orchid;
+          }
+        }
+      }
+    }
+  }
+}
